@@ -1,0 +1,10 @@
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: "DAF2EE";
+
+}
+
+.barradeBusqueda {
+  text-align: center;
+}
