@@ -1,15 +1,14 @@
 import PrimerComponente from './components/PrimerComponente';
 import Botones from './components/Botones';
 import BarraDeBusqueda from './components/BarraDeBusqueda';
-import Switchh from './components/Switchh';
+
 
 
 
 function App() {
   return (
     <>
-    <div className='Switch'>
-      <Switchh />
+    <div >
     </div>
       <div className='mainPage'>
         <PrimerComponente />

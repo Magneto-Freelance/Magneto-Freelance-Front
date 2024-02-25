@@ -8,3 +8,39 @@
 .barradeBusqueda {
   text-align: center;
 }
+
+/* ImageButton.module.css */
+.image-button {
+  position: relative;
+  overflow: hidden;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.image-button img {
+  width: 100%; 
+  height: auto; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0; 
+}
+
+.image-button span {
+  position: relative;
+  z-index: 1;
+  margin: 20px; 
+}
+
+.image-button.left {
+  flex-direction: row-reverse;
+}
+
+.image-button.right {
+  flex-direction: row; 
+}

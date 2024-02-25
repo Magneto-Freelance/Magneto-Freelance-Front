@@ -16,7 +16,7 @@ function Botones() {
 					/>
 					Iniciar sesión
 				</Link>
-				<Link style={{ backgroundColor: '#65EEC1' }} href='/registro'>
+				<Link style={{ backgroundColor: '#65EEC1' }} href='/empresa_o_freelancer'>
 					{' '}
 					<Image
 						src={'/flecha_inicio.jpg'}
