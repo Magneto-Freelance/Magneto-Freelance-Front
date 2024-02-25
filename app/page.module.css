@@ -9,7 +9,6 @@
   text-align: center;
 }
 
-/* ImageButton.module.css */
 .image-button {
   position: relative;
   overflow: hidden;
@@ -22,7 +21,7 @@
   padding: 0;
 }
 
-.image-button img {
+.image-button{
   width: 100%; 
   height: auto; 
   position: absolute;

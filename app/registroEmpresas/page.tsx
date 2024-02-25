@@ -37,62 +37,66 @@ const onSubmit = async (data: FormRegisterModel) => {
         } = useForm<FormRegisterModel>({
             resolver: zodResolver(formRegisterModel),
         });
-    return(
-<div style={{ backgroundColor: '#F5D7AE', padding: '20px' }}>
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<div>
-					<label htmlFor='name'> Escibe el nombre de la empresa</label>
-					<input
-						type='text'
-            id='name'
-						{...register('name')}
-					/>
-				</div>
-        {errors.name && <p>{errors.name.message}</p>}
-				<br />
-				<div>
-					<label htmlFor='email'> Escibe el E-mail de la empresa</label>
-					<input
-						type='email'
-            {...register('email')}
-					/>
-				</div>
-        {errors.email && <p>{errors.email.message}</p>}
-				<br />
-				<div>
-					<label htmlFor='id'> Escribe el NIT de la empresa</label>
-					<input
-						type='id'
-            id='id'
-            {...register('id')}
-					/>
-				</div>
-				<br />
-				<div>
-					<label htmlFor='description'> Escribe una breve descripción de la empresa</label>
-					<input
-						type='description'
-            id='description'
-            {...register('description')}
-					/>
-				</div>
-				<br />
-				<div>
-					<label htmlFor='cell_phone_number'>
-						Escibe el número de la empresa
-					</label>
-					<input
-						type='cell_phone_number'
-            id='cell_phone_number'
-            {...register('cell_phone_number')}
-					/>
-				</div>
-				<br />
-				<input type='submit' value='Registarse' />
-			</form>
-		</div>
-
-    );
+        return (
+            <div style={{ backgroundColor: '#F5D7AE', padding: '20px' }}>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <div>
+                  <label htmlFor='name'>Escribe el nombre de la empresa</label>
+                  <input
+                    type='text'
+                    id='name'
+                    {...register('name')}
+                  />
+                </div>
+                <br />
+                <div>
+                  <label htmlFor='email'>Escribe el E-mail de la empresa</label>
+                  <input
+                    type='email'
+                    {...register('email')}
+                  />
+                </div>
+                <br />
+                <div>
+                  <label htmlFor='id'>Escribe el NIT de la empresa</label>
+                  <input
+                    type='text'
+                    id='id'
+                    {...register('id')}
+                  />
+                </div>
+                <br />
+                <div>
+                  <label htmlFor='type'>Escribe de qué tipo es la empresa</label>
+                  <input
+                    type='text'
+                    id='type'
+                    {...register('type')}
+                  />
+                </div>
+                <br />
+                <div>
+                  <label htmlFor='description'>Escribe una breve descripción de la empresa</label>
+                  <input
+                    type='text'
+                    id='description'
+                    {...register('description')}
+                  />
+                </div>
+                <br />
+                <div>
+                  <label htmlFor='cell_phone_number'>Escribe el número de la empresa</label>
+                  <input
+                    type='text'
+                    id='cell_phone_number'
+                    {...register('cell_phone_number')}
+                  />
+                </div>
+                <br />
+                <input type='submit' value='Registrarse' />
+              </form>
+            </div>
+          );
 }
 
 export default  FormularioRegistroEmpresas;
