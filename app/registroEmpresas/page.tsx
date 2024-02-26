@@ -5,13 +5,13 @@ import { z } from 'zod';
 
 
 const formRegisterModel = z.object({
-	name: z.string().min(2, 'El nombre debe tener como minimo 2 caracteres'),
-	email: z.string().email(),
-	description : z.string(),
+    name: z.string().min(2, 'El nombre debe tener como minimo 2 caracteres'),
+    email: z.string().email(),
+    description: z.string(),
     ubication: z.string(),
     type: z.string(),
-    id: z.string(),
-    cell_phone_number: z.string()
+    nit: z.string(),
+    cellphoneNumber: z.string()
 });
 
 type FormRegisterModel = z.infer<typeof formRegisterModel>;
@@ -29,74 +29,84 @@ const onSubmit = async (data: FormRegisterModel) => {
     console.log(res);
 }
 
-    function FormularioRegistroEmpresas() {
-        const {
-            register,
-            handleSubmit,
-            formState: { errors },
-        } = useForm<FormRegisterModel>({
-            resolver: zodResolver(formRegisterModel),
-        });
-        return (
-            <div style={{ backgroundColor: '#F5D7AE', padding: '20px' }}>
-              <form onSubmit={handleSubmit(onSubmit)}>
+function FormularioRegistroEmpresas() {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<FormRegisterModel>({
+        resolver: zodResolver(formRegisterModel),
+    });
+    console.log(errors);
+    return (
+        <div style={{ backgroundColor: '#F5D7AE', padding: '20px' }}>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
-                  <label htmlFor='name'>Escribe el nombre de la empresa</label>
-                  <input
-                    type='text'
-                    id='name'
-                    {...register('name')}
-                  />
+                    <label htmlFor='name'>Escribe el nombre de la empresa</label>
+                    <input
+                        type='text'
+                        id='name'
+                        {...register('name')}
+                    />
                 </div>
                 <br />
                 <div>
-                  <label htmlFor='email'>Escribe el E-mail de la empresa</label>
-                  <input
-                    type='email'
-                    {...register('email')}
-                  />
+                    <label htmlFor='email'>Escribe el E-mail de la empresa</label>
+                    <input
+                        type='email'
+                        {...register('email')}
+                    />
                 </div>
                 <br />
                 <div>
-                  <label htmlFor='id'>Escribe el NIT de la empresa</label>
-                  <input
-                    type='text'
-                    id='id'
-                    {...register('id')}
-                  />
+                    <label htmlFor='nit'>Escribe el NIT de la empresa</label>
+                    <input
+                        type='text'
+                        id='nit'
+                        {...register('nit')}
+                    />
                 </div>
                 <br />
                 <div>
-                  <label htmlFor='type'>Escribe de qué tipo es la empresa</label>
-                  <input
-                    type='text'
-                    id='type'
-                    {...register('type')}
-                  />
+                    <label htmlFor='type'>Escribe de qué tipo es la empresa</label>
+                    <input
+                        type='text'
+                        id='type'
+                        {...register('type')}
+                    />
                 </div>
                 <br />
                 <div>
-                  <label htmlFor='description'>Escribe una breve descripción de la empresa</label>
-                  <input
-                    type='text'
-                    id='description'
-                    {...register('description')}
-                  />
+                    <label htmlFor='type'>Escribe la ubicación de la empresa</label>
+                    <input
+                        type='text'
+                        id='type'
+                        {...register('ubication')}
+                    />
                 </div>
                 <br />
                 <div>
-                  <label htmlFor='cell_phone_number'>Escribe el número de la empresa</label>
-                  <input
-                    type='text'
-                    id='cell_phone_number'
-                    {...register('cell_phone_number')}
-                  />
+                    <label htmlFor='description'>Escribe una breve descripción de la empresa</label>
+                    <input
+                        type='text'
+                        id='description'
+                        {...register('description')}
+                    />
                 </div>
                 <br />
-                <input type='submit' value='Registrarse' />
-              </form>
-            </div>
-          );
+                <div>
+                    <label htmlFor='cellphoneNumber'>Escribe el número de la empresa</label>
+                    <input
+                        type='text'
+                        id='cellphoneNumber'
+                        {...register('cellphoneNumber')}
+                    />
+                </div>
+                <br />
+                <button type='submit' > Registrarse </button>
+            </form>
+        </div>
+    );
 }
 
-export default  FormularioRegistroEmpresas;
+export default FormularioRegistroEmpresas;
