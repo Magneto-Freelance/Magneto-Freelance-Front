@@ -6,7 +6,7 @@ function Botones() {
 	return (
 		<div>
 			<div className='button-container'>
-				<Link style={{ backgroundColor: '#FFFFFF' }} href='/inicio'>
+				<Link style={{ backgroundColor: '#FFFFFF' }} href='/empresa_o_freelancer_inicio'>
 					{' '}
 					<Image
 						src={'/crear_usuario.png'}

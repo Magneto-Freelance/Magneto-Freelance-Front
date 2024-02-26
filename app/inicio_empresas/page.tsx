@@ -11,7 +11,7 @@ const loginModel = z.object({
 
 type LoginModel = z.infer<typeof loginModel>;
 
-function FormularioInicio() {
+function FormularioInicioEmpresas() {
   const {
     register,
     handleSubmit,
@@ -42,12 +42,12 @@ function FormularioInicio() {
     <div style={{ backgroundColor: '#F5D7AE', padding: '20px' }}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <label htmlFor="email">Escribe tu correo electrónico</label>
+          <label htmlFor="email">Escribe el correo electrónico de tu empresa</label>
           <input type="email" id="email" {...register('email')} />
         </div>
         <br/>
         <div>
-          <label htmlFor="contra">Escribe tu contraseña</label>
+          <label htmlFor="contra">Escribe el NIT de tu empresa</label>
           <input type="password" id="contra" {...register('password')} />
         </div>
         <br/>
@@ -57,4 +57,4 @@ function FormularioInicio() {
   );
 }
 
-export default FormularioInicio;
+export default FormularioInicioEmpresas;
