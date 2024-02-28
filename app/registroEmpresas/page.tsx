@@ -59,7 +59,7 @@ function FormularioRegistroEmpresas() {
                 </div>
                 <br />
                 <div>
-                    <label htmlFor='nit'>Escribe el NIT de la empresa</label>
+                    <label htmlFor='nit'>Escribe el NIT  o contraseña de la empresa</label>
                     <input
                         type='text'
                         id='nit'

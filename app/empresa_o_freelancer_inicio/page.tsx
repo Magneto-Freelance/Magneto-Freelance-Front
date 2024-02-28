@@ -14,7 +14,7 @@ function CuadroDeSeleccionInicio() {
                     height='30'
                     width='30'
                 />
-                Soy empresa
+                Soy empleador
             </Link>
             <Link style={{ backgroundColor: '#FFFFFF' }} href='/inicio' className='.image-button.rigth'>
                 {' '}
