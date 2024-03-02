@@ -47,7 +47,7 @@ function FormularioInicioEmpresas() {
         </div>
         <br/>
         <div>
-          <label htmlFor="contra">Escribe el NIT de tu empresa</label>
+          <label htmlFor="contra">Escribe la contraseña de tu empresa</label>
           <input type="password" id="contra" {...register('password')} />
         </div>
         <br/>

@@ -71,7 +71,7 @@ function FormularioRegistroEmpresas() {
                 <div>
                     <label htmlFor='nit'>Escribe la contraseña de la empresa</label>
                     <input
-                        type='text'
+                        type='password'
                         id='password'
                         {...register('password')}
                     />
