@@ -11,6 +11,7 @@ const formRegisterModel = z.object({
     ubication: z.string(),
     type: z.string(),
     nit: z.string(),
+    password: z.string(),
     cellphoneNumber: z.string()
 });
 
@@ -59,11 +60,20 @@ function FormularioRegistroEmpresas() {
                 </div>
                 <br />
                 <div>
-                    <label htmlFor='nit'>Escribe el NIT  o contraseña de la empresa</label>
+                    <label htmlFor='nit'>Escribe el NIT de la empresa</label>
                     <input
                         type='text'
                         id='nit'
                         {...register('nit')}
+                    />
+                </div>
+                <br />
+                <div>
+                    <label htmlFor='nit'>Escribe la contraseña de la empresa</label>
+                    <input
+                        type='text'
+                        id='password'
+                        {...register('password')}
                     />
                 </div>
                 <br />
