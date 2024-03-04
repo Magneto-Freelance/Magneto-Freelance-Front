@@ -6,7 +6,7 @@ import { z } from 'zod';
 
 const formRegisterModel = z.object({
     name: z.string().min(2, 'El nombre debe tener como minimo 2 caracteres'),
-    ussername: z.string(),
+    username: z.string(),
     email: z.string().email(),
     password: z.string(),
 });
@@ -60,7 +60,7 @@ function FormularioRegistroEmpresas() {
                     <input
                         type='text'
                         id='nit'
-                        {...register('ussername')}
+                        {...register('username')}
                     />
                 </div>
                 <br />
