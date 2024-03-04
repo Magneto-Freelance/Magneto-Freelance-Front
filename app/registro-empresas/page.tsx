@@ -6,13 +6,9 @@ import { z } from 'zod';
 
 const formRegisterModel = z.object({
     name: z.string().min(2, 'El nombre debe tener como minimo 2 caracteres'),
+    ussername: z.string(),
     email: z.string().email(),
-    description: z.string(),
-    ubication: z.string(),
-    type: z.string(),
-    nit: z.string(),
     password: z.string(),
-    cellphoneNumber: z.string()
 });
 
 type FormRegisterModel = z.infer<typeof formRegisterModel>;
@@ -60,11 +56,11 @@ function FormularioRegistroEmpresas() {
                 </div>
                 <br />
                 <div>
-                    <label htmlFor='nit'>Escribe el NIT de la empresa</label>
+                    <label htmlFor='ussername'>Escribe el nombre de usuario de la empresa</label>
                     <input
                         type='text'
                         id='nit'
-                        {...register('nit')}
+                        {...register('ussername')}
                     />
                 </div>
                 <br />
@@ -77,41 +73,6 @@ function FormularioRegistroEmpresas() {
                     />
                 </div>
                 <br />
-                <div>
-                    <label htmlFor='type'>Escribe de qué tipo es la empresa</label>
-                    <input
-                        type='text'
-                        id='type'
-                        {...register('type')}
-                    />
-                </div>
-                <br />
-                <div>
-                    <label htmlFor='type'>Escribe la ubicación de la empresa</label>
-                    <input
-                        type='text'
-                        id='type'
-                        {...register('ubication')}
-                    />
-                </div>
-                <br />
-                <div>
-                    <label htmlFor='description'>Escribe una breve descripción de la empresa</label>
-                    <input
-                        type='text'
-                        id='description'
-                        {...register('description')}
-                    />
-                </div>
-                <br />
-                <div>
-                    <label htmlFor='cellphoneNumber'>Escribe el número de la empresa</label>
-                    <input
-                        type='text'
-                        id='cellphoneNumber'
-                        {...register('cellphoneNumber')}
-                    />
-                </div>
                 <br />
                 <button type='submit' > Registrarse </button>
             </form>

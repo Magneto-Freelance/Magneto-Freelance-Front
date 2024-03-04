@@ -6,10 +6,9 @@ import { z } from 'zod';
 
 const formRegisterModel = z.object({
 	name: z.string().min(2, 'El nombre debe tener como minimo 2 caracteres'),
+	ussername: z.string(),
 	email: z.string().email(),
 	password: z.string().regex(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/, "Escribe mínimo 1 número y 1 carácter especial"),
-	occupation: z.string(),
-	cellphoneNumber: z.string(),
 });
 
 type FormRegisterModel = z.infer<typeof formRegisterModel>;
@@ -70,23 +69,11 @@ function FormularioRegistro() {
         {errors.password && <p>{errors.password.message}</p>}
 				<br />
 				<div>
-					<label htmlFor='occupation'> ¿Cual es tu ocupación?</label>
+					<label htmlFor='ussername'> Escribe tu nombre de usuario </label>
 					<input
-						type='occupation'
-            id='occupation'
-            {...register('occupation')}
-					/>
-				</div>
-        {errors.occupation && <p>{errors.occupation.message}</p>}
-				<br />
-				<div>
-					<label htmlFor='cellNumber'>
-						Escibe tu número de celular
-					</label>
-					<input
-						type='cellNumber'
-            id='cellNumber'
-            {...register('cellphoneNumber')}
+						type='ussername'
+            id='ussername'
+            {...register('ussername')}
 					/>
 				</div>
 				<br />

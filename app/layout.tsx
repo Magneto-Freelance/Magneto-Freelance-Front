@@ -1,24 +1,29 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.scss';
+import { useEffect } from 'react';
+import { Toaster } from 'react-hot-toast';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Magneto Freelance",
-  icons: {
-    icon: '/Magneto.Logo.jpg'
-  } 
+	title: 'Magneto Freelance',
+	icons: {
+		icon: '/Magneto.Logo.jpg',
+	},
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
-  );
+	return (
+		<html lang='es'>
+			<body className={inter.className}>
+				<Toaster />
+				{children}
+			</body>
+		</html>
+	);
 }

@@ -1,45 +1,26 @@
-"use client";
+'use client';
 
-import { zodResolver } from '@hookform/resolvers/zod';
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import * as z from 'zod';
+import { useDebounce, useDebouncedCallback } from 'use-debounce';
 
-const searchBarModel = z.object({
-	searchTerm: z.string({
-		required_error: 'Debes ingresar un término de búsqueda',
-	}),
-});
+interface BarraDeBusquedaProps {
+	onSearch: (searchTerm: string) => void;
+}
 
-type SearchBarModel = z.infer<typeof searchBarModel>;
-
-function BarraDeBusqueda() {
-	const {
-		register,
-		handleSubmit,
-		formState: { errors },
-	} = useForm<SearchBarModel>({ resolver: zodResolver(searchBarModel) });
-
-	const sendSearch = (data: SearchBarModel) => {
-		console.log(data);
-	};
+function BarraDeBusqueda({ onSearch }: BarraDeBusquedaProps) {
+	const debounced = useDebouncedCallback((value) => {
+		onSearch(value);
+	}, 500);
 
 	return (
-		<form onSubmit={handleSubmit(sendSearch)}>
-			<input
-				type='search'
-				placeholder='Buscar empleo o profesión'
-				{...register('searchTerm')}
-			/>
-			{errors.searchTerm && <p>{errors.searchTerm.message}</p>}
-			<button
-				type='submit'
-				style={{ backgroundColor: '#171D8E', color: '#FFFFFF' }}
-			>
-				Buscar
-			</button>
-		</form>
+		<input
+			className='form-control text-center fs-5'
+			type='search'
+			placeholder='Buscar empleo o profesión'
+			aria-label='Search'
+			onChange={(e) => debounced(e.target.value)}
+		/>
 	);
-};
+}
 
 export default BarraDeBusqueda;
