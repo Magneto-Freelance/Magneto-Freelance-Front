@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
 	title: 'Magneto Freelance',
 	icons: {
-		icon: 'public\Magneto_freelance_logo.png',
+		icon: '/Magneto_freelance_logo..jpg',
 	},
 };
 
