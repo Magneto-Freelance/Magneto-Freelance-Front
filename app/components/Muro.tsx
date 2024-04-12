@@ -20,22 +20,23 @@ async function getOffers(search: string) {
 function Muro({ search }: MuroProps) {
 	const offersJson = use(getOffers(search));
 
-    return (
-		<div className='container p-4'>
-			<div className='row row-cols-1 g-4'>
-				{offersJson.map((offer) => (
-					<div key={offer._id} className='col'>
-						<div className='card h-100'>
-							<div className='card-body'>
-								<h5 className='card-title'>{offer.title}</h5>
-								<p className='card-text'>{offer.description}</p>
-							</div>
-						</div>
-					</div>
-				))}
-			</div>
-		</div>
-	);
+	return (
+        <div className='container p-4'>
+            <div className='row row-cols-1 g-4'>
+                {offersJson.map((offer) => (
+                    <div key={offer._id} className='col'>
+                        <div className='card h-100'>
+                            <div className='card-body'>
+                                <h5 className='card-title'>{offer.title}</h5>
+                                <p className='card-text'>{offer.description}</p>
+                                <button className='btn btn-primary'>Ver más</button>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
 }
 
 export default Muro;

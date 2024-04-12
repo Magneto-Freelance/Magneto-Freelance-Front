@@ -16,6 +16,7 @@
     "materialize-css": "^1.0.0-rc.2",
     "next": "14.1.0",
     "react": "^18",
+    "react-bootstrap": "^2.10.2",
     "react-dom": "^18",
     "react-hook-form": "^7.50.1",
     "react-hot-toast": "^2.4.1",
