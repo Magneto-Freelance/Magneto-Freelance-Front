@@ -5,6 +5,9 @@ import BarraDeBusqueda from './components/BarraDeBusqueda';
 import Botones from './components/Botones';
 import { Suspense, useState } from 'react';
 import Muro from './components/Muro';
+import { Routes, Route } from 'react-router-dom';
+
+
 
 function App() {
   const [search, setSearch] = useState('');
