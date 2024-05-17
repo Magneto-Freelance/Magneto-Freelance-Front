@@ -1,5 +1,6 @@
 import { z } from "zod";
 
+
 export const Offer = z.object({
     _id: z.string().optional(),
 	title: z.string(),
