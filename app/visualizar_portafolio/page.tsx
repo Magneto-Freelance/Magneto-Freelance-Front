@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Portafolio } from '../types';
+import styles from './styles.css';
 
 function VisualizarPortafolio() {
     const router = useRouter();
@@ -27,23 +28,38 @@ function VisualizarPortafolio() {
     }, []);
 
     if (!portafolio) {
-        return <div>Cargando...</div>;
+        return <div className='container mt-5'>Cargando...</div>;
     }
 
     return (
-        <div className='container mt-5'>
-            <h1>Visualizar Portafolio</h1>
-            <p>Profesión: {portafolio.profesion}</p>
-            <p>Descripción: {portafolio.description}</p>
-            <p>Salario deseado: {portafolio.salary}</p>
-            <p>Habilidades: {portafolio.skills}</p>
-            <p>Whatsapp: {portafolio.whatsapp}</p>
-            <p>Otra información: {portafolio.other}</p>
-            <button className='btn btn-primary' onClick={() => router.back()}>
-                Volver
-            </button>
+        <div className='container-fluid mt-5'>
+            <div className='row justify-content-center'>
+                <div className='col-lg-8'>
+                    <div className='card'>
+                        <div className='card-header'>
+                            <h1 className='card-title text-center'>Mi Portafolio</h1>
+                        </div>
+                        <div className='card-body'>
+                            <p><strong>Profesión:</strong> {portafolio.profesion}</p>
+                            <p><strong>Descripción:</strong> {portafolio.description}</p>
+                            <p><strong>Salario deseado:</strong> {portafolio.salary}</p>
+                            <p><strong>Habilidades:</strong> {portafolio.skills}</p>
+                            <p><strong>Whatsapp:</strong> {portafolio.whatsapp}</p>
+                            <p><strong>Otra información:</strong> {portafolio.other}</p>
+                            <button className='btn btn-primary' onClick={() => router.back()}>Volver</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <style jsx>{`
+                .card {
+                    margin-bottom: 40px;
+                }
+            `}</style>
         </div>
     );
 }
+
+VisualizarPortafolio.useClient = true;
 
 export default VisualizarPortafolio;

@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useTokenStore } from '../store';
 import { useRouter } from 'next/navigation';
-import { Offer, Portafolio } from '../types';
+import { Offer } from '../types';
 
 export default function CrearOferta() {
     const router = useRouter();
@@ -15,7 +15,7 @@ export default function CrearOferta() {
 		register,
 		handleSubmit,
 		formState: { errors },
-	} = useForm<Offer>({ resolver: zodResolver(Portafolio), defaultValues: {
+	} = useForm<Offer>({ resolver: zodResolver(Offer), defaultValues: {
         employer: email ?? '',
     } });
 
