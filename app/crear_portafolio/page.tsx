@@ -6,29 +6,28 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useTokenStore } from '../store';
 import { useRouter } from 'next/navigation';
-import { Offer, Portafolio } from '../types';
+import { Portafolio } from '../types';
 
-export default function CrearOferta() {
+export default function CrearPortafolio() {
     const router = useRouter();
 	const { email, type } = useTokenStore();
     const {
 		register,
 		handleSubmit,
 		formState: { errors },
-	} = useForm<Offer>({ resolver: zodResolver(Portafolio), defaultValues: {
-        employer: email ?? '',
+	} = useForm<Portafolio>({ resolver: zodResolver(Portafolio), defaultValues: {
     } });
 
     useEffect(() => {
-        if (!email || type !== 'empresa') {
-            toast.error('Debes iniciar sesión como empresa para crear una oferta');
+        if (!email || type !== 'freelancer') {
+            toast.error('Debes iniciar sesión como freelancer para crear un potafolio');
             router.push('/');
         }
     }, [email, router, type]);
 
-	const onSubmit = async (data: Offer) => {
+	const onSubmit = async (data: Portafolio) => {
 		try {
-			const res = await fetch('http://localhost:8000/offer', {
+			const res = await fetch('http://localhost:8000/portafolio', {
 				method: 'POST',
 				body: JSON.stringify(data),
 				headers: {
@@ -37,9 +36,9 @@ export default function CrearOferta() {
 			});
 
 			if (res.status === 201) {
-				toast.success('Oferta creada exitosamente');
+				toast.success('Portafolio creado exitosamente');
 			} else {
-				toast.error('Error al crear la oferta, intente más tarde');
+				toast.error('Error al crear el portafolio, intente más tarde');
 			}
 		} catch (error) {
 			console.error('Error al enviar la solicitud:', error);
@@ -50,41 +49,40 @@ export default function CrearOferta() {
 		<main className='container mt-5'>
 			<form className='row g-3' role='form' onSubmit={handleSubmit(onSubmit)}>
 				<div className='col-md-6'>
-					<label htmlFor='title' className='form-label'>
-						Título
+					<label htmlFor='profesion' className='form-label'>
+						Profesion
 					</label>
 					<input
 						type='text'
 						className='form-control'
-						id='title'
-						placeholder='Título'
-						{...register('title')}
+						id='profesion'
+						placeholder='Profesion'
+						{...register('profesion')}
 					/>
-					{errors.title && <p>{errors.title.message}</p>}
+					{errors.profesion && <p>{errors.profesion.message}</p>}
 				</div>
 				<div className='col-md-6'>
-					<label htmlFor='employer' className='form-label'>
-						Empleador
+					<label htmlFor='description' className='form-label'>
+						Descripcion personal 
 					</label>
 					<input
 						type='text'
-						className='form-control text-secondary disabled'
-						id='employer'
-						placeholder='Empleador'
-                        readOnly
-						{...register('employer')}
+						className='form-control text-secondary'
+						id='description'
+						placeholder='Descripcion'
+						{...register('description')}
 					/>
-					{errors.employer && <p>{errors.employer.message}</p>}
+					{errors.description && <p>{errors.description.message}</p>}
 				</div>
 				<div className='col-12'>
-					<label htmlFor='description' className='form-label'>
-						Descripción
+					<label htmlFor='salary' className='form-label'>
+						Salario deseado
 					</label>
 					<textarea
 						className='form-control'
-						id='description'
-						placeholder='Descripción'
-						{...register('description')}
+						id='salary'
+						placeholder='Salary'
+						{...register('salary')}
 					></textarea>
 					{errors.description && <p>{errors.description.message}</p>}
 				</div>
@@ -102,21 +100,34 @@ export default function CrearOferta() {
 					{errors.skills && <p>{errors.skills.message}</p>}
 				</div>
 				<div className='col-md-6'>
-					<label htmlFor='salary' className='form-label'>
-						Salario
+					<label htmlFor='whatsapp' className='form-label'>
+						Link de whatsapp o número
 					</label>
 					<input
 						type='text'
 						className='form-control'
-						id='salary'
-						placeholder='Salario'
-						{...register('salary')}
+						id='whatsapp'
+						placeholder='Whatsapp'
+						{...register('whatsapp')}
 					/>
-					{errors.salary && <p>{errors.salary.message}</p>}
+					{errors.whatsapp && <p>{errors.whatsapp.message}</p>}
+				</div>
+                <div className='col-md-6'>
+					<label htmlFor='other' className='form-label'>
+						Otra información o redes sociales
+					</label>
+					<input
+						type='text'
+						className='form-control'
+						id='other'
+						placeholder='Otros'
+						{...register('other')}
+					/>
+					{errors.other && <p>{errors.other.message}</p>}
 				</div>
 				<div className='col-12'>
 					<button type='submit' className='btn btn-primary'>
-						Crear oferta
+						Crear Portafolio
 					</button>
 				</div>
 			</form>

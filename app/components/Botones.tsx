@@ -17,6 +17,14 @@ function Botones() {
 						</Link>
 					</li>
 				)}
+
+					{type == 'freelancer' && (
+					<li className='nav-item'>
+						<Link href='/crear_portafolio' className='me-2'>
+							<button className='btn btn-primary'>Crear Portafolio</button>
+						</Link>
+					</li>
+				)}
 				<li className='nav-item mt-2 me-2'>
 					Perfil: <span className='text-capitalize'>{type}</span>
 				</li>
