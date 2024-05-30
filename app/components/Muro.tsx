@@ -29,7 +29,8 @@ function Muro({ search }: MuroProps) {
 							<div className='card-body'>
 								<h5 className='card-title'>{offer.title}</h5>
 								<p className='card-text'>{offer.description}</p>
-								<p className='card-text'>{offer.salary}</p>
+								<p className='card-text'>Salario: {offer.salary}</p>
+								<p className='card-text'>Contratante: {offer.employer}</p>
 								<button type='submit' className='btn btn-primary'>
 									Aplicar
 							</button>

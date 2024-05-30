@@ -21,7 +21,7 @@ function Botones() {
                 <>
                     <li className='nav-item'>
                         <Link href='/visualizar_portafolio' className='me-2'>
-                            <button style={{ padding: '0.25rem 0.5rem', fontSize: '0.875rem', lineHeight: '1.5', borderRadius: '0.2rem' }} className='btn btn-primary me-2'>Visualizar Portafolio</button>
+                            <button style={{ padding: '0.25rem 0.5rem', fontSize: '0.875rem', lineHeight: '1.5', borderRadius: '0.2rem' }} className='btn btn-primary me-2'>Visualizar Portafolios</button>
                         </Link>
                     </li>
                     <li className='nav-item'>
